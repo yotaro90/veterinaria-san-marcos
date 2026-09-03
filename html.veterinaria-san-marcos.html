@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veterinaria San Marcos | Rancagua</title>
+  <meta name="description" content="Veterinaria San Marcos: consultas, vacunación, cirugía, exámenes y agendamiento de citas en línea para tu mascota en Rancagua.">
+
+  <!-- Tus compañeros deben enlazar aquí su hoja de estilos -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Icono del sitio (opcional, reemplazar por el logo real) -->
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header">
+    <div class="header__container">
+
+      <a href="index.html" class="header__logo">
+        <img src="logo.png" alt="Logo Veterinaria San Marcos" class="header__logo-img">
+        <span class="header__logo-text">Veterinaria San Marcos</span>
+      </a>
+
+      <!-- Botón hamburguesa: el comportamiento (mostrar/ocultar nav) lo agrega JS -->
+      <button type="button" class="header__toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="navMenu">
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+      </button>
+
+      <!-- ============ NAV ============ -->
+      <nav class="nav" id="navMenu">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#inicio" class="nav__link">Inicio</a></li>
+          <li class="nav__item"><a href="#nosotros" class="nav__link">Nosotros</a></li>
+          <li class="nav__item"><a href="#equipo" class="nav__link">Nuestro equipo</a></li>
+          <li class="nav__item"><a href="#servicios" class="nav__link">Servicios</a></li>
+          <li class="nav__item"><a href="#citas" class="nav__link">Agendar cita</a></li>
+          <li class="nav__item"><a href="#ubicacion" class="nav__link">Ubicación</a></li>
+          <li class="nav__item"><a href="#contacto" class="nav__link">Contacto</a></li>
+        </ul>
+
+        <div class="nav__auth">
+          <a href="login.html" class="btn btn--outline">Iniciar sesión</a>
+          <a href="registro.html" class="btn btn--primary">Registrarse</a>
+        </div>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+
+    <!-- ---------- HERO / INICIO ---------- -->
+    <section id="inicio" class="hero">
+      <div class="hero__content">
+        <h1 class="hero__title">Cuidamos a tu mascota como parte de tu familia</h1>
+        <p class="hero__subtitle">Agenda tu hora en línea, consulta el historial clínico de tu mascota y recibe recordatorios de vacunas, todo desde un solo lugar.</p>
+        <a href="#citas" class="btn btn--primary btn--large">Agendar una cita</a>
+      </div>
+      <figure class="hero__figure">
+        <img src="assets/img/hero-mascota.jpg" alt="Veterinario examinando a un perro en la clínica">
+      </figure>
+    </section>
+
+    <!-- ---------- NOSOTROS ---------- -->
+    <section id="nosotros" class="about">
+      <h2 class="section-title">Quiénes somos</h2>
+      <article class="about__content">
+        <p>
+          Veterinaria San Marcos es una clínica veterinaria ubicada en Rancagua,
+          Región del Libertador General Bernardo O'Higgins. Fundada en 2009,
+          contamos con 3 médicos veterinarios, 1 técnico veterinario y 1
+          recepcionista administrativa dedicados al cuidado de tu mascota.
+        </p>
+        <p>
+          Atendemos perros, gatos, conejos y aves, con servicios de consulta
+          general, vacunación, cirugía menor, desparasitación y control de
+          peso, recibiendo en promedio 25 pacientes al día.
+        </p>
+      </article>
+
+      <!-- Datos destacados -->
+      <div class="about__stats">
+        <article class="stat-card">
+          <p class="stat-card__number">2009</p>
+          <p class="stat-card__label">Año de fundación</p>
+        </article>
+        <article class="stat-card">
+          <p class="stat-card__number">3</p>
+          <p class="stat-card__label">Médicos veterinarios</p>
+        </article>
+        <article class="stat-card">
+          <p class="stat-card__number">25</p>
+          <p class="stat-card__label">Pacientes atendidos al día</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ---------- EQUIPO / ACTORES ---------- -->
+    <section id="equipo" class="team">
+      <h2 class="section-title">Nuestro equipo</h2>
+      <div class="team__grid">
+
+        <article class="team-card">
+          <img src="assets/img/equipo-veterinario.jpg" alt="Médico veterinario" class="team-card__img">
+          <h3 class="team-card__name">Médico veterinario</h3>
+          <p class="team-card__desc">Examina al paciente y registra diagnóstico y tratamiento en la ficha clínica.</p>
+        </article>
+
+        <article class="team-card">
+          <img src="assets/img/equipo-tecnico.jpg" alt="Técnico veterinario" class="team-card__img">
+          <h3 class="team-card__name">Técnico veterinario</h3>
+          <p class="team-card__desc">Apoya al médico, aplica vacunas y administra medicamentos.</p>
+        </article>
+
+        <article class="team-card">
+          <img src="assets/img/equipo-recepcion.jpg" alt="Recepcionista" class="team-card__img">
+          <h3 class="team-card__name">Recepcionista</h3>
+          <p class="team-card__desc">Gestiona la agenda de citas y las fichas de los pacientes.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ---------- SERVICIOS ---------- -->
+    <section id="servicios" class="services">
+      <h2 class="section-title">Catálogo de servicios</h2>
+      <p class="section-subtitle">Precios referenciales en pesos chilenos (CLP).</p>
+
+      <!-- Categoría: Consultas -->
+      <article class="service-category" id="cat-consultas">
+        <h3 class="service-category__title">Consultas</h3>
+        <table class="service-table">
+          <caption class="sr-only">Servicios de consulta</caption>
+          <thead>
+            <tr>
+              <th scope="col">Código</th>
+              <th scope="col">Servicio</th>
+              <th scope="col">Especie</th>
+              <th scope="col">Duración</th>
+              <th scope="col">Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Código">SV001</td>
+              <td data-label="Servicio">Consulta general</td>
+              <td data-label="Especie">Perro / Gato</td>
+              <td data-label="Duración">30 min</td>
+              <td data-label="Precio">$15.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">SV002</td>
+              <td data-label="Servicio">Consulta urgencia</td>
+              <td data-label="Especie">Perro / Gato</td>
+              <td data-label="Duración">30 min</td>
+              <td data-label="Precio">$25.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">SV003</td>
+              <td data-label="Servicio">Control postoperatorio</td>
+              <td data-label="Especie">Perro / Gato</td>
+              <td data-label="Duración">20 min</td>
+              <td data-label="Precio">$10.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">SV004</td>
+              <td data-label="Servicio">Consulta ave / conejo</td>
+              <td data-label="Especie">Ave / Conejo</td>
+              <td data-label="Duración">30 min</td>
+              <td data-label="Precio">$18.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">SV005</td>
+              <td data-label="Servicio">Segunda opinión médica</td>
+              <td data-label="Especie">Todas</td>
+              <td data-label="Duración">40 min</td>
+              <td data-label="Precio">$20.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <!-- Categoría: Vacunación -->
+      <article class="service-category" id="cat-vacunacion">
+        <h3 class="service-category__title">Vacunación</h3>
+        <table class="service-table">
+          <caption class="sr-only">Servicios de vacunación</caption>
+          <thead>
+            <tr>
+              <th scope="col">Código</th>
+              <th scope="col">Servicio</th>
+              <th scope="col">Especie</th>
+              <th scope="col">Duración</th>
+              <th scope="col">Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Código">VA001</td>
+              <td data-label="Servicio">Vacuna antirrábica canina</td>
+              <td data-label="Especie">Perro</td>
+              <td data-label="Duración">10 min</td>
+              <td data-label="Precio">$12.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">VA002</td>
+              <td data-label="Servicio">Vacuna séxtuple canina</td>
+              <td data-label="Especie">Perro</td>
+              <td data-label="Duración">10 min</td>
+              <td data-label="Precio">$18.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">VA003</td>
+              <td data-label="Servicio">Vacuna bivalente felina</td>
+              <td data-label="Especie">Gato</td>
+              <td data-label="Duración">10 min</td>
+              <td data-label="Precio">$15.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">VA004</td>
+              <td data-label="Servicio">Vacuna triple felina</td>
+              <td data-label="Especie">Gato</td>
+              <td data-label="Duración">10 min</td>
+              <td data-label="Precio">$17.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">VA005</td>
+              <td data-label="Servicio">Vacuna Bordetella canina</td>
+              <td data-label="Especie">Perro</td>
+              <td data-label="Duración">10 min</td>
+              <td data-label="Precio">$14.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">VA006</td>
+              <td data-label="Servicio">Vacuna antirrábica felina</td>
+              <td data-label="Especie">Gato</td>
+              <td data-label="Duración">10 min</td>
+              <td data-label="Precio">$12.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <!-- Categoría: Cirugía -->
+      <article class="service-category" id="cat-cirugia">
+        <h3 class="service-category__title">Cirugía</h3>
+        <table class="service-table">
+          <caption class="sr-only">Servicios de cirugía</caption>
+          <thead>
+            <tr>
+              <th scope="col">Código</th>
+              <th scope="col">Servicio</th>
+              <th scope="col">Especie</th>
+              <th scope="col">Duración</th>
+              <th scope="col">Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Código">CI001</td>
+              <td data-label="Servicio">Esterilización hembra canina</td>
+              <td data-label="Especie">Perra</td>
+              <td data-label="Duración">90 min</td>
+              <td data-label="Precio">$80.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">CI002</td>
+              <td data-label="Servicio">Esterilización macho canino</td>
+              <td data-label="Especie">Perro</td>
+              <td data-label="Duración">60 min</td>
+              <td data-label="Precio">$60.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">CI003</td>
+              <td data-label="Servicio">Esterilización hembra felina</td>
+              <td data-label="Especie">Gata</td>
+              <td data-label="Duración">60 min</td>
+              <td data-label="Precio">$65.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">CI004</td>
+              <td data-label="Servicio">Esterilización macho felino</td>
+              <td data-label="Especie">Gato</td>
+              <td data-label="Duración">45 min</td>
+              <td data-label="Precio">$50.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">CI005</td>
+              <td data-label="Servicio">Extirpación de tumor cutáneo</td>
+              <td data-label="Especie">Perro / Gato</td>
+              <td data-label="Duración">60 min</td>
+              <td data-label="Precio">$120.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">CI006</td>
+              <td data-label="Servicio">Cesárea de urgencia</td>
+              <td data-label="Especie">Perra / Gata</td>
+              <td data-label="Duración">120 min</td>
+              <td data-label="Precio">$180.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <!-- Categoría: Desparasitación -->
+      <article class="service-category" id="cat-desparasitacion">
+        <h3 class="service-category__title">Desparasitación</h3>
+        <table class="service-table">
+          <caption class="sr-only">Servicios de desparasitación</caption>
+          <thead>
+            <tr>
+              <th scope="col">Código</th>
+              <th scope="col">Servicio</th>
+              <th scope="col">Especie</th>
+              <th scope="col">Duración</th>
+              <th scope="col">Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Código">DE001</td>
+              <td data-label="Servicio">Desparasitación interna pequeños (&lt;10 kg)</td>
+              <td data-label="Especie">Perro</td>
+              <td data-label="Duración">5 min</td>
+              <td data-label="Precio">$8.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">DE002</td>
+              <td data-label="Servicio">Desparasitación interna medianos (10-25 kg)</td>
+              <td data-label="Especie">Perro</td>
+              <td data-label="Duración">5 min</td>
+              <td data-label="Precio">$9.500</td>
+            </tr>
+            <tr>
+              <td data-label="Código">DE003</td>
+              <td data-label="Servicio">Desparasitación interna grandes (&gt;25 kg)</td>
+              <td data-label="Especie">Perro</td>
+              <td data-label="Duración">5 min</td>
+              <td data-label="Precio">$11.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">DE004</td>
+              <td data-label="Servicio">Desparasitación interna felina</td>
+              <td data-label="Especie">Gato</td>
+              <td data-label="Duración">5 min</td>
+              <td data-label="Precio">$8.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">DE005</td>
+              <td data-label="Servicio">Antiparasitario externo (pipeta)</td>
+              <td data-label="Especie">Perro / Gato</td>
+              <td data-label="Duración">5 min</td>
+              <td data-label="Precio">$7.500</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <!-- Categoría: Exámenes -->
+      <article class="service-category" id="cat-examenes">
+        <h3 class="service-category__title">Exámenes</h3>
+        <table class="service-table">
+          <caption class="sr-only">Servicios de exámenes</caption>
+          <thead>
+            <tr>
+              <th scope="col">Código</th>
+              <th scope="col">Servicio</th>
+              <th scope="col">Especie</th>
+              <th scope="col">Duración</th>
+              <th scope="col">Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Código">EX001</td>
+              <td data-label="Servicio">Hemograma completo</td>
+              <td data-label="Especie">Perro / Gato</td>
+              <td data-label="Duración">30 min</td>
+              <td data-label="Precio">$22.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">EX002</td>
+              <td data-label="Servicio">Perfil bioquímico completo</td>
+              <td data-label="Especie">Perro / Gato</td>
+              <td data-label="Duración">30 min</td>
+              <td data-label="Precio">$35.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">EX003</td>
+              <td data-label="Servicio">Radiografía (1 proyección)</td>
+              <td data-label="Especie">Perro / Gato</td>
+              <td data-label="Duración">20 min</td>
+              <td data-label="Precio">$28.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">EX004</td>
+              <td data-label="Servicio">Ecografía abdominal</td>
+              <td data-label="Especie">Perro / Gato</td>
+              <td data-label="Duración">30 min</td>
+              <td data-label="Precio">$45.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">EX005</td>
+              <td data-label="Servicio">Test de leishmaniasis</td>
+              <td data-label="Especie">Perro</td>
+              <td data-label="Duración">20 min</td>
+              <td data-label="Precio">$18.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <!-- Categoría: Otros -->
+      <article class="service-category" id="cat-otros">
+        <h3 class="service-category__title">Otros servicios</h3>
+        <table class="service-table">
+          <caption class="sr-only">Otros servicios</caption>
+          <thead>
+            <tr>
+              <th scope="col">Código</th>
+              <th scope="col">Servicio</th>
+              <th scope="col">Especie</th>
+              <th scope="col">Duración</th>
+              <th scope="col">Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Código">OT001</td>
+              <td data-label="Servicio">Corte de uñas</td>
+              <td data-label="Especie">Perro / Gato</td>
+              <td data-label="Duración">15 min</td>
+              <td data-label="Precio">$5.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">OT002</td>
+              <td data-label="Servicio">Limpieza dental</td>
+              <td data-label="Especie">Perro / Gato</td>
+              <td data-label="Duración">45 min</td>
+              <td data-label="Precio">$55.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">OT003</td>
+              <td data-label="Servicio">Microchip identificación</td>
+              <td data-label="Especie">Perro / Gato</td>
+              <td data-label="Duración">10 min</td>
+              <td data-label="Precio">$15.000</td>
+            </tr>
+            <tr>
+              <td data-label="Código">OT004</td>
+              <td data-label="Servicio">Hospitalización (por día)</td>
+              <td data-label="Especie">Perro / Gato</td>
+              <td data-label="Duración">24 h</td>
+              <td data-label="Precio">$30.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+    </section>
+
+    <!-- ---------- AGENDAR CITA ---------- -->
+    <section id="citas" class="appointment">
+      <h2 class="section-title">Solicitar una cita</h2>
+      <p class="section-subtitle">Completa el formulario y nuestra recepcionista confirmará tu hora a la brevedad.</p>
+
+      <!-- El envío del formulario (fetch/AJAX hacia la API REST) lo implementa el equipo de JS -->
+      <form class="appointment-form" id="appointmentForm" action="#" method="post" novalidate>
+
+        <div class="form-group">
+          <label for="ownerName">Nombre del dueño/a</label>
+          <input type="text" id="ownerName" name="ownerName" placeholder="Ej: María Pérez" required>
+        </div>
+
+        <div class="form-group">
+          <label for="ownerEmail">Correo electrónico</label>
+          <input type="email" id="ownerEmail" name="ownerEmail" placeholder="correo@ejemplo.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="ownerPhone">Teléfono de contacto</label>
+          <input type="tel" id="ownerPhone" name="ownerPhone" placeholder="+56 9 1234 5678" required>
+        </div>
+
+        <div class="form-group">
+          <label for="petName">Nombre de la mascota</label>
+          <input type="text" id="petName" name="petName" placeholder="Ej: Rocky" required>
+        </div>
+
+        <div class="form-group">
+          <label for="petSpecies">Especie</label>
+          <select id="petSpecies" name="petSpecies" required>
+            <option value="">Selecciona una opción</option>
+            <option value="perro">Perro</option>
+            <option value="gato">Gato</option>
+            <option value="conejo">Conejo</option>
+            <option value="ave">Ave</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="serviceType">Tipo de servicio</label>
+          <select id="serviceType" name="serviceType" required>
+            <option value="">Selecciona una opción</option>
+            <option value="consulta">Consulta general</option>
+            <option value="urgencia">Consulta de urgencia</option>
+            <option value="vacunacion">Vacunación</option>
+            <option value="cirugia">Cirugía</option>
+            <option value="desparasitacion">Desparasitación</option>
+            <option value="examen">Exámenes</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="appointmentDate">Fecha preferida</label>
+          <input type="date" id="appointmentDate" name="appointmentDate" required>
+        </div>
+
+        <div class="form-group">
+          <label for="appointmentTime">Hora preferida</label>
+          <input type="time" id="appointmentTime" name="appointmentTime" required>
+        </div>
+
+        <div class="form-group form-group--full">
+          <label for="appointmentMessage">Motivo de la consulta</label>
+          <textarea id="appointmentMessage" name="appointmentMessage" rows="4" placeholder="Cuéntanos brevemente qué le sucede a tu mascota"></textarea>
+        </div>
+
+        <div class="form-group form-group--full">
+          <button type="submit" class="btn btn--primary btn--large">Solicitar cita</button>
+        </div>
+
+      </form>
+    </section>
+
+    <!-- ---------- UBICACIÓN / MAPA ---------- -->
+    <section id="ubicacion" class="location">
+      <h2 class="section-title">Cómo llegar</h2>
+      <div class="location__content">
+
+        <!-- Contenedor donde el equipo de JS inicializará Leaflet / Google Maps -->
+        <div id="map" class="location__map" role="application" aria-label="Mapa de ubicación de Veterinaria San Marcos"></div>
+
+        <address class="location__address">
+          <p><strong>Veterinaria San Marcos</strong></p>
+          <p>Rancagua, Región del Libertador General Bernardo O'Higgins, Chile</p>
+          <p>Teléfono: <a href="tel:+56720000000">+56 72 200 0000</a></p>
+          <p>Correo: <a href="mailto:contacto@veterinariasanmarcos.cl">contacto@veterinariasanmarcos.cl</a></p>
+        </address>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ PIE DE PAGINA ============ -->
+  <footer class="footer" id="contacto">
+    <div class="footer__container">
+
+      <div class="footer__brand">
+        <img src="logo.png" alt="Logo Veterinaria San Marcos" class="footer__logo">
+        <p>Cuidando a tu mascota con dedicación desde 2009.</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Enlaces del pie de página">
+        <h3 class="footer__heading">Navegación</h3>
+        <ul class="footer__list">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#citas">Agendar cita</a></li>
+          <li><a href="#ubicacion">Ubicación</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__hours">
+        <h3 class="footer__heading">Horario de atención</h3>
+        <ul class="footer__list">
+          <li>Lunes a viernes: 09:00 - 19:00</li>
+          <li>Sábado: 09:00 - 14:00</li>
+          <li>Domingo: cerrado</li>
+        </ul>
+      </div>
+
+      <div class="footer__social">
+        <h3 class="footer__heading">Síguenos</h3>
+        <ul class="footer__social-list">
+          <li><a href="#" aria-label="Facebook de Veterinaria San Marcos">Facebook</a></li>
+          <li><a href="#" aria-label="Instagram de Veterinaria San Marcos">Instagram</a></li>
+          <li><a href="#" aria-label="WhatsApp de Veterinaria San Marcos">WhatsApp</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; <span id="currentYear">2026</span> Veterinaria San Marcos. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- aqui enlazar los archivo(s) JS -->
+  <script src="js/main.js" defer></script>
+
+</body>
+</html>
