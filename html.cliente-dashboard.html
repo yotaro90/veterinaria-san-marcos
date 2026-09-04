@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi cuenta | Veterinaria San Marcos</title>
+  <meta name="description" content="Revisa tus próximas citas, tu historial y el estado de vacunación de tu mascota.">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="logo.png" type="image/png">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header">
+    <div class="header__container">
+      <a href="portal.html" class="header__logo">
+        <img src="logo.png" alt="Logo Veterinaria San Marcos" class="header__logo-img" width="50" height="50">
+        <span class="header__logo-text">Veterinaria San Marcos</span>
+      </a>
+
+      <button type="button" class="header__toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="navMenu">
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+      </button>
+
+      <nav class="nav" id="navMenu">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#proximas" class="nav__link">Mis citas</a></li>
+          <li class="nav__item"><a href="#historial" class="nav__link">Historial</a></li>
+          <li class="nav__item"><a href="#vacunas" class="nav__link">Vacunas</a></li>
+        </ul>
+        <div class="nav__auth">
+          <span class="nav__user">Hola, María Pérez</span>
+          <a href="portal.html" class="btn btn--outline">Cerrar sesión</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+
+    <!-- ---------- PRÓXIMAS CITAS ---------- -->
+    <section id="proximas" class="dashboard-section">
+      <div class="dashboard-section__head">
+        <h1 class="section-title">Mis próximas citas</h1>
+        <a href="index.html#citas" class="btn btn--primary">Agendar nueva cita</a>
+      </div>
+
+      <table class="data-table" id="upcomingTable">
+        <caption class="sr-only">Citas próximas</caption>
+        <thead>
+          <tr>
+            <th scope="col">Fecha</th>
+            <th scope="col">Hora</th>
+            <th scope="col">Mascota</th>
+            <th scope="col">Servicio</th>
+            <th scope="col">Veterinario</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Fecha">12-09-2026</td>
+            <td data-label="Hora">10:30</td>
+            <td data-label="Mascota">Rocky</td>
+            <td data-label="Servicio">Consulta general</td>
+            <td data-label="Veterinario">Dr. Andrés Soto</td>
+            <td data-label="Estado"><span class="badge badge--confirmed">Confirmada</span></td>
+            <td data-label="Acciones">
+              <button type="button" class="btn btn--small btn--outline">Reagendar</button>
+              <button type="button" class="btn btn--small btn--danger">Cancelar</button>
+            </td>
+          </tr>
+          <tr>
+            <td data-label="Fecha">20-09-2026</td>
+            <td data-label="Hora">16:00</td>
+            <td data-label="Mascota">Rocky</td>
+            <td data-label="Servicio">Vacuna antirrábica</td>
+            <td data-label="Veterinario">Dra. Camila Rojas</td>
+            <td data-label="Estado"><span class="badge badge--pending">Por confirmar</span></td>
+            <td data-label="Acciones">
+              <button type="button" class="btn btn--small btn--outline">Reagendar</button>
+              <button type="button" class="btn btn--small btn--danger">Cancelar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ---------- HISTORIAL DE CITAS PASADAS ---------- -->
+    <section id="historial" class="dashboard-section">
+      <h2 class="section-title">Historial de citas pasadas</h2>
+
+      <table class="data-table" id="historyTable">
+        <caption class="sr-only">Historial de citas</caption>
+        <thead>
+          <tr>
+            <th scope="col">Fecha</th>
+            <th scope="col">Mascota</th>
+            <th scope="col">Servicio</th>
+            <th scope="col">Veterinario</th>
+            <th scope="col">Diagnóstico</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Fecha">02-08-2026</td>
+            <td data-label="Mascota">Rocky</td>
+            <td data-label="Servicio">Consulta general</td>
+            <td data-label="Veterinario">Dr. Andrés Soto</td>
+            <td data-label="Diagnóstico">Otitis leve, tratamiento con gotas por 7 días.</td>
+          </tr>
+          <tr>
+            <td data-label="Fecha">15-05-2026</td>
+            <td data-label="Mascota">Rocky</td>
+            <td data-label="Servicio">Desparasitación interna</td>
+            <td data-label="Veterinario">Dra. Camila Rojas</td>
+            <td data-label="Diagnóstico">Sin observaciones, control en 6 meses.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ---------- HISTORIAL DE VACUNACIÓN ---------- -->
+    <section id="vacunas" class="dashboard-section">
+      <h2 class="section-title">Historial de vacunación</h2>
+      <p class="section-subtitle">Mascota: <strong>Rocky</strong> (Perro)</p>
+
+      <table class="data-table" id="vaccinesTable">
+        <caption class="sr-only">Historial de vacunación</caption>
+        <thead>
+          <tr>
+            <th scope="col">Vacuna</th>
+            <th scope="col">Fecha aplicada</th>
+            <th scope="col">Próxima dosis</th>
+            <th scope="col">Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Vacuna">Séxtuple canina</td>
+            <td data-label="Fecha aplicada">20-09-2025</td>
+            <td data-label="Próxima dosis">20-09-2026</td>
+            <td data-label="Estado"><span class="badge badge--warning">Próxima a vencer</span></td>
+          </tr>
+          <tr>
+            <td data-label="Vacuna">Antirrábica</td>
+            <td data-label="Fecha aplicada">05-03-2026</td>
+            <td data-label="Próxima dosis">05-03-2027</td>
+            <td data-label="Estado"><span class="badge badge--confirmed">Al día</span></td>
+          </tr>
+          <tr>
+            <td data-label="Vacuna">Bordetella</td>
+            <td data-label="Fecha aplicada">10-01-2026</td>
+            <td data-label="Próxima dosis">10-01-2027</td>
+            <td data-label="Estado"><span class="badge badge--confirmed">Al día</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer footer--simple">
+    <div class="footer__bottom">
+      <p>&copy; <span id="currentYear">2026</span> Veterinaria San Marcos. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ficha de paciente | Veterinaria San Marcos</title>
+  <meta name="description" content="Historial clínico del paciente y registro de nueva atención.">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="logo.png" type="image/png">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header">
+    <div class="header__container">
+      <a href="portal.html" class="header__logo">
+        <img src="logo.png" alt="Logo Veterinaria San Marcos" class="header__logo-img" width="50" height="50">
+        <span class="header__logo-text">Veterinaria San Marcos</span>
+      </a>
+
+      <button type="button" class="header__toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="navMenu">
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+      </button>
+
+      <nav class="nav" id="navMenu">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="veterinario-dashboard.html" class="nav__link">&larr; Volver a pacientes</a></li>
+        </ul>
+        <div class="nav__auth">
+          <span class="nav__user">Dr. Andrés Soto</span>
+          <a href="portal.html" class="btn btn--outline">Cerrar sesión</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+
+    <!-- ---------- DATOS DEL PACIENTE ---------- -->
+    <!-- Nota: esta ficha es un ejemplo estático. En la versión final, JS/backend debe
+         cargar los datos según el parámetro ?paciente=ID de la URL. -->
+    <section class="dashboard-section">
+      <h1 class="section-title">Ficha de Rocky</h1>
+
+      <div class="patient-info">
+        <p><strong>Dueño:</strong> María Pérez</p>
+        <p><strong>Especie:</strong> Perro</p>
+        <p><strong>Raza:</strong> Golden Retriever</p>
+        <p><strong>Edad:</strong> 4 años</p>
+        <p><strong>Peso:</strong> 28 kg</p>
+      </div>
+    </section>
+
+    <!-- ---------- HISTORIAL DE ATENCIONES ---------- -->
+    <section class="dashboard-section">
+      <h2 class="section-title">Historial de atenciones</h2>
+
+      <table class="data-table" id="patientHistoryTable">
+        <caption class="sr-only">Historial de atenciones del paciente</caption>
+        <thead>
+          <tr>
+            <th scope="col">Fecha</th>
+            <th scope="col">Motivo</th>
+            <th scope="col">Diagnóstico</th>
+            <th scope="col">Medicamentos</th>
+            <th scope="col">Veterinario</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Fecha">02-08-2026</td>
+            <td data-label="Motivo">Rascado excesivo de orejas</td>
+            <td data-label="Diagnóstico">Otitis leve</td>
+            <td data-label="Medicamentos">Gotas óticas cada 12 hrs por 7 días</td>
+            <td data-label="Veterinario">Dr. Andrés Soto</td>
+          </tr>
+          <tr>
+            <td data-label="Fecha">15-05-2026</td>
+            <td data-label="Motivo">Control rutinario</td>
+            <td data-label="Diagnóstico">Sin observaciones</td>
+            <td data-label="Medicamentos">Desparasitante interno</td>
+            <td data-label="Veterinario">Dra. Camila Rojas</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ---------- REGISTRAR NUEVA ATENCIÓN ---------- -->
+    <section class="dashboard-section">
+      <h2 class="section-title">Registrar nueva atención</h2>
+
+      <!-- El envío (guardar en la base de datos) lo implementa el equipo de JS/backend -->
+      <form class="clinical-form" id="clinicalForm" action="#" method="post" novalidate>
+
+        <div class="form-group form-group--full">
+          <label for="reason">Motivo de la consulta</label>
+          <input type="text" id="reason" name="reason" placeholder="Ej: Vómitos, chequeo general, vacunación..." required>
+        </div>
+
+        <div class="form-group form-group--full">
+          <label for="diagnosis">Diagnóstico</label>
+          <textarea id="diagnosis" name="diagnosis" rows="4" placeholder="Escribe el diagnóstico del paciente" required></textarea>
+        </div>
+
+        <div class="form-group form-group--full">
+          <label for="medications">Medicamentos recetados</label>
+          <textarea id="medications" name="medications" rows="3" placeholder="Ej: Amoxicilina 250mg cada 12 hrs por 7 días"></textarea>
+        </div>
+
+        <div class="form-group form-group--checkbox form-group--full">
+          <input type="checkbox" id="scheduleControl" name="scheduleControl">
+          <label for="scheduleControl">Agendar control de seguimiento</label>
+        </div>
+
+        <div class="form-group">
+          <label for="controlDate">Fecha del control</label>
+          <input type="date" id="controlDate" name="controlDate">
+        </div>
+
+        <div class="form-group">
+          <label for="controlTime">Hora del control</label>
+          <input type="time" id="controlTime" name="controlTime">
+        </div>
+
+        <div class="form-group form-group--full">
+          <button type="submit" class="btn btn--primary btn--large">Guardar atención</button>
+        </div>
+
+      </form>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer footer--simple">
+    <div class="footer__bottom">
+      <p>&copy; <span id="currentYear">2026</span> Veterinaria San Marcos. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+
+</body>
+</html>

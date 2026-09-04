@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Veterinario | Veterinaria San Marcos</title>
+  <meta name="description" content="Agenda del día y búsqueda del historial clínico de pacientes.">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="logo.png" type="image/png">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header">
+    <div class="header__container">
+      <a href="portal.html" class="header__logo">
+        <img src="logo.png" alt="Logo Veterinaria San Marcos" class="header__logo-img" width="50" height="50">
+        <span class="header__logo-text">Veterinaria San Marcos</span>
+      </a>
+
+      <button type="button" class="header__toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="navMenu">
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+      </button>
+
+      <nav class="nav" id="navMenu">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#agenda" class="nav__link">Agenda del día</a></li>
+          <li class="nav__item"><a href="#pacientes" class="nav__link">Pacientes</a></li>
+        </ul>
+        <div class="nav__auth">
+          <span class="nav__user">Dr. Andrés Soto</span>
+          <a href="portal.html" class="btn btn--outline">Cerrar sesión</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+
+    <!-- ---------- AGENDA DEL DÍA ---------- -->
+    <section id="agenda" class="dashboard-section">
+      <h1 class="section-title">Agenda de hoy</h1>
+
+      <table class="data-table" id="agendaTable">
+        <caption class="sr-only">Agenda del día</caption>
+        <thead>
+          <tr>
+            <th scope="col">Hora</th>
+            <th scope="col">Paciente</th>
+            <th scope="col">Dueño</th>
+            <th scope="col">Motivo</th>
+            <th scope="col">Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Hora">09:00</td>
+            <td data-label="Paciente">Rocky</td>
+            <td data-label="Dueño">María Pérez</td>
+            <td data-label="Motivo">Consulta general</td>
+            <td data-label="Estado"><span class="badge badge--confirmed">Confirmada</span></td>
+          </tr>
+          <tr>
+            <td data-label="Hora">10:30</td>
+            <td data-label="Paciente">Michi</td>
+            <td data-label="Dueño">Jorge Díaz</td>
+            <td data-label="Motivo">Control postoperatorio</td>
+            <td data-label="Estado"><span class="badge badge--pending">En espera</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ---------- BUSCADOR DE PACIENTES ---------- -->
+    <section id="pacientes" class="dashboard-section">
+      <h2 class="section-title">Pacientes</h2>
+
+      <!-- La lógica de filtrado en vivo la agrega JS, escuchando el evento input de este campo -->
+      <div class="search-bar">
+        <label for="patientSearch" class="sr-only">Buscar paciente</label>
+        <input type="search" id="patientSearch" name="patientSearch" placeholder="Buscar por nombre de mascota o dueño..." autocomplete="off">
+        <button type="button" class="btn btn--primary" id="patientSearchBtn">Buscar</button>
+      </div>
+
+      <table class="data-table" id="patientsTable">
+        <caption class="sr-only">Lista de pacientes activos</caption>
+        <thead>
+          <tr>
+            <th scope="col">Mascota</th>
+            <th scope="col">Dueño</th>
+            <th scope="col">Especie</th>
+            <th scope="col">Última visita</th>
+            <th scope="col">Motivo</th>
+            <th scope="col">Ficha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-pet="Rocky" data-owner="María Pérez">
+            <td data-label="Mascota">Rocky</td>
+            <td data-label="Dueño">María Pérez</td>
+            <td data-label="Especie">Perro</td>
+            <td data-label="Última visita">02-08-2026</td>
+            <td data-label="Motivo">Otitis leve</td>
+            <td data-label="Ficha"><a href="ficha-paciente.html?paciente=1" class="btn btn--small btn--outline">Ver ficha</a></td>
+          </tr>
+          <tr data-pet="Michi" data-owner="Jorge Díaz">
+            <td data-label="Mascota">Michi</td>
+            <td data-label="Dueño">Jorge Díaz</td>
+            <td data-label="Especie">Gato</td>
+            <td data-label="Última visita">28-08-2026</td>
+            <td data-label="Motivo">Esterilización</td>
+            <td data-label="Ficha"><a href="ficha-paciente.html?paciente=2" class="btn btn--small btn--outline">Ver ficha</a></td>
+          </tr>
+          <tr data-pet="Toby" data-owner="Camila Fuentes">
+            <td data-label="Mascota">Toby</td>
+            <td data-label="Dueño">Camila Fuentes</td>
+            <td data-label="Especie">Perro</td>
+            <td data-label="Última visita">30-08-2026</td>
+            <td data-label="Motivo">Vacunación</td>
+            <td data-label="Ficha"><a href="ficha-paciente.html?paciente=3" class="btn btn--small btn--outline">Ver ficha</a></td>
+          </tr>
+          <tr data-pet="Kiwi" data-owner="Camila Fuentes">
+            <td data-label="Mascota">Kiwi</td>
+            <td data-label="Dueño">Camila Fuentes</td>
+            <td data-label="Especie">Ave</td>
+            <td data-label="Última visita">18-07-2026</td>
+            <td data-label="Motivo">Consulta general</td>
+            <td data-label="Ficha"><a href="ficha-paciente.html?paciente=4" class="btn btn--small btn--outline">Ver ficha</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- Nota para JS: cada <tr> tiene data-pet y data-owner para que el buscador filtre por esos valores -->
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer footer--simple">
+    <div class="footer__bottom">
+      <p>&copy; <span id="currentYear">2026</span> Veterinaria San Marcos. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+
+</body>
+</html>

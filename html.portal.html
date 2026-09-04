@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal | Veterinaria San Marcos</title>
+  <meta name="description" content="Ingresa como cliente, veterinario o recepcionista al sistema de Veterinaria San Marcos.">
+
+  <!-- Tus compañeros deben enlazar aquí su hoja de estilos -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="logo.png" type="image/png">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header header--simple">
+    <div class="header__container">
+      <a href="index.html" class="header__logo">
+        <img src="logo.png" alt="Logo Veterinaria San Marcos" class="header__logo-img" width="50" height="50">
+        <span class="header__logo-text">Veterinaria San Marcos</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+    <section class="portal">
+      <h1 class="section-title">¿Cómo quieres ingresar?</h1>
+      <p class="section-subtitle">Selecciona tu perfil para continuar al sistema.</p>
+
+      <div class="portal__grid">
+
+        <!-- ---------- CLIENTE ---------- -->
+        <article class="portal-card">
+          <img src="assets/img/icono-cliente.png" alt="" class="portal-card__icon">
+          <h2 class="portal-card__title">Cliente</h2>
+          <p class="portal-card__desc">Agenda citas, revisa tus citas pasadas y el historial de vacunación de tu mascota.</p>
+          <a href="cliente-dashboard.html" class="btn btn--primary">Ingresar como cliente</a>
+        </article>
+
+        <!-- ---------- VETERINARIO ---------- -->
+        <article class="portal-card">
+          <img src="assets/img/icono-veterinario.png" alt="" class="portal-card__icon">
+          <h2 class="portal-card__title">Veterinario</h2>
+          <p class="portal-card__desc">Busca pacientes, revisa su historial clínico y registra diagnósticos y tratamientos.</p>
+          <a href="veterinario-dashboard.html" class="btn btn--primary">Ingresar como veterinario</a>
+        </article>
+
+        <!-- ---------- RECEPCIONISTA ---------- -->
+        <article class="portal-card">
+          <img src="assets/img/icono-recepcionista.png" alt="" class="portal-card__icon">
+          <h2 class="portal-card__title">Recepcionista</h2>
+          <p class="portal-card__desc">Gestiona la agenda del día, crea nuevas citas y genera reportes de atenciones.</p>
+          <a href="recepcionista-dashboard.html" class="btn btn--primary">Ingresar como recepcionista</a>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer footer--simple">
+    <div class="footer__bottom">
+      <p>&copy; <span id="currentYear">2026</span> Veterinaria San Marcos. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Tus compañeros deben enlazar aquí el/los archivo(s) JS -->
+  <script src="js/main.js" defer></script>
+
+</body>
+</html>

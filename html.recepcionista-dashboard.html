@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Recepción | Veterinaria San Marcos</title>
+  <meta name="description" content="Agenda del día, creación de nuevas citas y reportes de atenciones.">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="logo.png" type="image/png">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header">
+    <div class="header__container">
+      <a href="portal.html" class="header__logo">
+        <img src="logo.png" alt="Logo Veterinaria San Marcos" class="header__logo-img" width="50" height="50">
+        <span class="header__logo-text">Veterinaria San Marcos</span>
+      </a>
+
+      <button type="button" class="header__toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="navMenu">
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+      </button>
+
+      <nav class="nav" id="navMenu">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#agenda" class="nav__link">Agenda del día</a></li>
+          <li class="nav__item"><a href="#nueva-cita" class="nav__link">Nueva cita</a></li>
+          <li class="nav__item"><a href="#reportes" class="nav__link">Reportes</a></li>
+        </ul>
+        <div class="nav__auth">
+          <span class="nav__user">Valentina Muñoz</span>
+          <a href="portal.html" class="btn btn--outline">Cerrar sesión</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+
+    <!-- ---------- AGENDA DEL DÍA ---------- -->
+    <section id="agenda" class="dashboard-section">
+      <h1 class="section-title">Agenda de hoy</h1>
+
+      <table class="data-table" id="receptionAgendaTable">
+        <caption class="sr-only">Agenda del día</caption>
+        <thead>
+          <tr>
+            <th scope="col">Hora</th>
+            <th scope="col">Paciente</th>
+            <th scope="col">Dueño</th>
+            <th scope="col">Servicio</th>
+            <th scope="col">Veterinario</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Hora">09:00</td>
+            <td data-label="Paciente">Rocky</td>
+            <td data-label="Dueño">María Pérez</td>
+            <td data-label="Servicio">Consulta general</td>
+            <td data-label="Veterinario">Dr. Andrés Soto</td>
+            <td data-label="Estado"><span class="badge badge--confirmed">Confirmada</span></td>
+            <td data-label="Acciones">
+              <button type="button" class="btn btn--small btn--outline">Editar</button>
+              <button type="button" class="btn btn--small btn--danger">Cancelar</button>
+            </td>
+          </tr>
+          <tr>
+            <td data-label="Hora">10:30</td>
+            <td data-label="Paciente">Michi</td>
+            <td data-label="Dueño">Jorge Díaz</td>
+            <td data-label="Servicio">Control postoperatorio</td>
+            <td data-label="Veterinario">Dra. Camila Rojas</td>
+            <td data-label="Estado"><span class="badge badge--pending">Por confirmar</span></td>
+            <td data-label="Acciones">
+              <button type="button" class="btn btn--small btn--outline">Confirmar</button>
+              <button type="button" class="btn btn--small btn--danger">Cancelar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ---------- NUEVA CITA ---------- -->
+    <section id="nueva-cita" class="dashboard-section">
+      <h2 class="section-title">Agendar nueva cita</h2>
+
+      <!-- El envío (guardar en la base de datos) lo implementa el equipo de JS/backend -->
+      <form class="appointment-form" id="newAppointmentForm" action="#" method="post" novalidate>
+
+        <div class="form-group">
+          <label for="ownerNameR">Nombre del dueño/a</label>
+          <input type="text" id="ownerNameR" name="ownerNameR" placeholder="Ej: María Pérez" required>
+        </div>
+
+        <div class="form-group">
+          <label for="ownerPhoneR">Teléfono de contacto</label>
+          <input type="tel" id="ownerPhoneR" name="ownerPhoneR" placeholder="+56 9 1234 5678" required>
+        </div>
+
+        <div class="form-group">
+          <label for="petNameR">Nombre de la mascota</label>
+          <input type="text" id="petNameR" name="petNameR" placeholder="Ej: Rocky" required>
+        </div>
+
+        <div class="form-group">
+          <label for="petSpeciesR">Especie</label>
+          <select id="petSpeciesR" name="petSpeciesR" required>
+            <option value="">Selecciona una opción</option>
+            <option value="perro">Perro</option>
+            <option value="gato">Gato</option>
+            <option value="conejo">Conejo</option>
+            <option value="ave">Ave</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="serviceTypeR">Tipo de servicio</label>
+          <select id="serviceTypeR" name="serviceTypeR" required>
+            <option value="">Selecciona una opción</option>
+            <option value="consulta">Consulta general</option>
+            <option value="urgencia">Consulta de urgencia</option>
+            <option value="vacunacion">Vacunación</option>
+            <option value="cirugia">Cirugía</option>
+            <option value="desparasitacion">Desparasitación</option>
+            <option value="examen">Exámenes</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="vetAssigned">Veterinario asignado</label>
+          <select id="vetAssigned" name="vetAssigned" required>
+            <option value="">Selecciona una opción</option>
+            <option value="soto">Dr. Andrés Soto</option>
+            <option value="rojas">Dra. Camila Rojas</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="appointmentDateR">Fecha</label>
+          <input type="date" id="appointmentDateR" name="appointmentDateR" required>
+        </div>
+
+        <div class="form-group">
+          <label for="appointmentTimeR">Hora</label>
+          <input type="time" id="appointmentTimeR" name="appointmentTimeR" required>
+        </div>
+
+        <div class="form-group form-group--full">
+          <button type="submit" class="btn btn--primary btn--large">Guardar cita</button>
+        </div>
+
+      </form>
+    </section>
+
+    <!-- ---------- REPORTES ---------- -->
+    <section id="reportes" class="dashboard-section">
+      <h2 class="section-title">Generar reporte de atenciones</h2>
+      <p class="section-subtitle">Filtra por período y tipo de reporte para exportar la información sin revisar archivadores.</p>
+
+      <!-- La generación del reporte (consulta a la base de datos / export) la implementa JS/backend -->
+      <form class="report-form" id="reportForm" action="#" method="get">
+
+        <div class="form-group">
+          <label for="dateFrom">Desde</label>
+          <input type="date" id="dateFrom" name="dateFrom" required>
+        </div>
+
+        <div class="form-group">
+          <label for="dateTo">Hasta</label>
+          <input type="date" id="dateTo" name="dateTo" required>
+        </div>
+
+        <div class="form-group">
+          <label for="reportType">Tipo de reporte</label>
+          <select id="reportType" name="reportType">
+            <option value="todos">Todas las atenciones</option>
+            <option value="veterinario">Por veterinario</option>
+            <option value="servicio">Por tipo de servicio</option>
+          </select>
+        </div>
+
+        <div class="form-group form-group--align-end">
+          <button type="submit" class="btn btn--primary">Generar reporte</button>
+        </div>
+
+      </form>
+
+      <!-- Contenedor donde JS insertará la tabla/gráfico de resultados del reporte -->
+      <div id="reportResults" class="report-results"></div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer footer--simple">
+    <div class="footer__bottom">
+      <p>&copy; <span id="currentYear">2026</span> Veterinaria San Marcos. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+
+</body>
+</html>
