@@ -34,7 +34,7 @@
           <li class="nav__item"><a href="#nosotros" class="nav__link">Nosotros</a></li>
           <li class="nav__item"><a href="#equipo" class="nav__link">Nuestro equipo</a></li>
           <li class="nav__item"><a href="#servicios" class="nav__link">Servicios</a></li>
-          <li class="nav__item"><a href="#citas" class="nav__link">Agendar cita</a></li>
+          <li class="nav__item"><a href="html.cliente-dashboard.html" class="nav__link">Agendar cita</a></li>
           <li class="nav__item"><a href="#ubicacion" class="nav__link">Ubicación</a></li>
           <li class="nav__item"><a href="#contacto" class="nav__link">Contacto</a></li>
         </ul>
@@ -55,10 +55,10 @@
       <div class="hero__content">
         <h1 class="hero__title">Cuidamos a tu mascota como parte de tu familia</h1>
         <p class="hero__subtitle">Agenda tu hora en línea, consulta el historial clínico de tu mascota y recibe recordatorios de vacunas, todo desde un solo lugar.</p>
-        <a href="#citas" class="btn btn--primary btn--large">Agendar una cita</a>
+        <a href="html.cliente-dashboard.html" class="btn btn--primary btn--large">Agendar una cita</a>
       </div>
       <figure class="hero__figure">
-        <img src="assets/img/hero-mascota.jpg" alt="Veterinario examinando a un perro en la clínica">
+        <img src="img/hero-mascota.webp" alt="Equipo veterinario examinando a un perro corgi">
       </figure>
     </section>
 
@@ -99,6 +99,9 @@
     <!-- ---------- EQUIPO / ACTORES ---------- -->
     <section id="equipo" class="team">
       <h2 class="section-title">Nuestro equipo</h2>
+        <figure class="team__photo">
+            <img src="img/equipo-foto-grupal.jpg" alt="Equipo de la Veterinaria San Marcos junto a algunas mascotas">
+        </figure>
       <div class="team__grid">
 
         <article class="team-card">
@@ -459,102 +462,6 @@
       </article>
 
     </section>
-
-    <!-- ---------- AGENDAR CITA ---------- -->
-    <section id="citas" class="appointment">
-      <h2 class="section-title">Solicitar una cita</h2>
-      <p class="section-subtitle">Completa el formulario y nuestra recepcionista confirmará tu hora a la brevedad.</p>
-
-      <!-- El envío del formulario (fetch/AJAX hacia la API REST) lo implementa el equipo de JS -->
-      <form class="appointment-form" id="appointmentForm" action="#" method="post" novalidate>
-
-        <div class="form-group">
-          <label for="ownerName">Nombre del dueño/a</label>
-          <input type="text" id="ownerName" name="ownerName" placeholder="Ej: María Pérez" required>
-        </div>
-
-        <div class="form-group">
-          <label for="ownerEmail">Correo electrónico</label>
-          <input type="email" id="ownerEmail" name="ownerEmail" placeholder="correo@ejemplo.com" required>
-        </div>
-
-        <div class="form-group">
-          <label for="ownerPhone">Teléfono de contacto</label>
-          <input type="tel" id="ownerPhone" name="ownerPhone" placeholder="+56 9 1234 5678" required>
-        </div>
-
-        <div class="form-group">
-          <label for="petName">Nombre de la mascota</label>
-          <input type="text" id="petName" name="petName" placeholder="Ej: Rocky" required>
-        </div>
-
-        <div class="form-group">
-          <label for="petSpecies">Especie</label>
-          <select id="petSpecies" name="petSpecies" required>
-            <option value="">Selecciona una opción</option>
-            <option value="perro">Perro</option>
-            <option value="gato">Gato</option>
-            <option value="conejo">Conejo</option>
-            <option value="ave">Ave</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="serviceType">Tipo de servicio</label>
-          <select id="serviceType" name="serviceType" required>
-            <option value="">Selecciona una opción</option>
-            <option value="consulta">Consulta general</option>
-            <option value="urgencia">Consulta de urgencia</option>
-            <option value="vacunacion">Vacunación</option>
-            <option value="cirugia">Cirugía</option>
-            <option value="desparasitacion">Desparasitación</option>
-            <option value="examen">Exámenes</option>
-            <option value="otro">Otro</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="appointmentDate">Fecha preferida</label>
-          <input type="date" id="appointmentDate" name="appointmentDate" required>
-        </div>
-
-        <div class="form-group">
-          <label for="appointmentTime">Hora preferida</label>
-          <input type="time" id="appointmentTime" name="appointmentTime" required>
-        </div>
-
-        <div class="form-group form-group--full">
-          <label for="appointmentMessage">Motivo de la consulta</label>
-          <textarea id="appointmentMessage" name="appointmentMessage" rows="4" placeholder="Cuéntanos brevemente qué le sucede a tu mascota"></textarea>
-        </div>
-
-        <div class="form-group form-group--full">
-          <button type="submit" class="btn btn--primary btn--large">Solicitar cita</button>
-        </div>
-
-      </form>
-    </section>
-
-    <!-- ---------- UBICACIÓN / MAPA ---------- -->
-    <section id="ubicacion" class="location">
-      <h2 class="section-title">Cómo llegar</h2>
-      <div class="location__content">
-
-        <!-- Contenedor donde el equipo de JS inicializará Leaflet / Google Maps -->
-        <div id="map" class="location__map" role="application" aria-label="Mapa de ubicación de Veterinaria San Marcos"></div>
-
-        <address class="location__address">
-          <p><strong>Veterinaria San Marcos</strong></p>
-          <p>Rancagua, Región del Libertador General Bernardo O'Higgins, Chile</p>
-          <p>Teléfono: <a href="tel:+56720000000">+56 72 200 0000</a></p>
-          <p>Correo: <a href="mailto:contacto@veterinariasanmarcos.cl">contacto@veterinariasanmarcos.cl</a></p>
-        </address>
-
-      </div>
-    </section>
-
-  </main>
-
   <!-- ============ PIE DE PAGINA ============ -->
   <footer class="footer" id="contacto">
     <div class="footer__container">
@@ -569,7 +476,7 @@
         <ul class="footer__list">
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#citas">Agendar cita</a></li>
+          <li><a href="html.cliente-dashboard.html">Agendar cita</a></li>
           <li><a href="#ubicacion">Ubicación</a></li>
         </ul>
       </nav>
