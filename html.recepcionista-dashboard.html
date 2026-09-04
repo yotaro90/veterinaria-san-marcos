@@ -7,7 +7,8 @@
   <meta name="description" content="Agenda del día, creación de nuevas citas y reportes de atenciones.">
 
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="icon" href="img/logo.png" type="image/png">
+  <script src="js/funciones.js" defer></script>
 </head>
 <body>
 
@@ -15,7 +16,7 @@
   <header class="header">
     <div class="header__container">
       <a href="html.portal.html" class="header__logo">
-        <img src="logo.png" alt="Logo Veterinaria San Marcos" class="header__logo-img" width="50" height="50">
+        <img src="img/logo.png" alt="Logo Veterinaria San Marcos" class="header__logo-img" width="50" height="50">
         <span class="header__logo-text">Veterinaria San Marcos</span>
       </a>
 
@@ -92,7 +93,6 @@
     <section id="nueva-cita" class="dashboard-section">
       <h2 class="section-title">Agendar nueva cita</h2>
 
-      <!-- El envío (guardar en la base de datos) lo implementa el equipo de JS/backend -->
       <form class="appointment-form" id="newAppointmentForm" action="#" method="post" novalidate>
 
         <div class="form-group">
@@ -166,7 +166,6 @@
       <h2 class="section-title">Generar reporte de atenciones</h2>
       <p class="section-subtitle">Filtra por período y tipo de reporte para exportar la información sin revisar archivadores.</p>
 
-      <!-- La generación del reporte (consulta a la base de datos / export) la implementa JS/backend -->
       <form class="report-form" id="reportForm" action="#" method="get">
 
         <div class="form-group">
@@ -203,7 +202,7 @@
   <!-- ============ FOOTER ============ -->
   <footer class="footer footer--simple">
     <div class="footer__bottom">
-      <p>&copy; <span id="currentYear">2026</span> Veterinaria San Marcos. Todos los derechos reservados.</p>
+      <p>&copy; 2026 Veterinaria San Marcos. Todos los derechos reservados.</p>
     </div>
   </footer>
 
