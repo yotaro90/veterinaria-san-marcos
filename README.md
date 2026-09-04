@@ -1,45 +1,53 @@
 # Veterinaria San Marcos - Sitio Web
 
-Este es el proyecto web que estamos armando para la Veterinaria San Marcos, una clínica de Rancagua que atiende perros, gatos, conejos y aves. La idea es que los dueños de mascotas puedan agendar citas en línea, revisar el historial de sus mascotas y que la clínica deje atrás el papeleo manual.
+Este es el proyecto web que estamos armando para la Veterinaria San Marcos, una clínica de Rancagua que atiende perros, gatos, conejos y aves. La idea es que los dueños de mascotas puedan agendar citas en línea, que los veterinarios consulten el historial clínico desde cualquier dispositivo, y que la recepcionista maneje la agenda sin tener que revisar archivadores.
 
-## ¿Qué hay en este archivo?
+## ¿Qué hay en este proyecto?
 
-Por ahora solo está listo el **HTML** (`index.html`), que es la base de la página principal. Está armado con etiquetas semánticas de HTML5 (`header`, `nav`, `main`, `section`, `article`, `footer`) para que sea fácil de leer y de conectar con estilos y funcionalidad.
+Por ahora está listo el **HTML** de todas las pantallas principales. Están armadas con etiquetas semánticas de HTML5 (`header`, `nav`, `main`, `section`, `article`, `footer`) para que sea fácil de leer y de conectar con estilos y funcionalidad.
 
-La página incluye:
+- **`html.veterinaria-san-marcos.html`**: la página principal y pública del sitio. Acá cualquier visitante puede conocer la clínica, ver el catálogo de servicios con precios, revisar quiénes forman el equipo y solicitar una cita.
 
-- Encabezado con logo y menú de navegación
-- Sección de inicio (hero)
-- Quiénes somos
-- Nuestro equipo
-- Catálogo de servicios con precios (consultas, vacunas, cirugías, desparasitación, exámenes y otros)
-- Formulario para solicitar una cita
-- Ubicación con espacio para el mapa
-- Pie de página con horarios, contacto y redes sociales
+- **`html.portal.html`**: la puerta de entrada al sistema interno. Muestra tres botones para elegir con qué rol vas a ingresar: Cliente, Veterinario o Recepcionista.
+
+- **`html.cliente-dashboard.html`**: lo que ve un dueño de mascota una vez que entra al sistema. Puede revisar sus próximas citas, su historial de citas pasadas, y el estado de vacunación de su mascota (con aviso de cuáles vacunas están por vencer).
+
+- **`html.veterinario-dashboard.html`**: la vista del veterinario. Tiene la agenda del día y una tabla de pacientes con un buscador para encontrar rápido a cualquier mascota o dueño.
+
+- **`html.ficha-paciente.html`**: la ficha clínica de un paciente en particular. Muestra sus datos, el historial de atenciones anteriores, y un formulario para que el veterinario registre el diagnóstico, los medicamentos recetados y agende un control de seguimiento si corresponde.
+
+- **`html.recepcionista-dashboard.html`**: la vista de la recepcionista. Tiene la agenda del día, un formulario para crear nuevas citas, y una sección para generar reportes de atenciones filtrando por fecha.
+
+- **`logo.png`**: el logo de la clínica, con fondo transparente para que se vea bien sobre cualquier color.
 
 ## ¿Qué falta por hacer?
 
-- **CSS**: darle estilo visual a todo (colores, tipografías, espaciados) y agregar las imágenes reales (logo, fotos del equipo, foto del hero). Las imágenes ya están referenciadas en el HTML apuntando a una carpeta `assets/img/`, solo hay que poner los archivos ahí.
-- **JavaScript**: hacer que el menú hamburguesa funcione en móvil, validar el formulario de citas antes de enviarlo, conectar el mapa (Leaflet o Google Maps) y hacer las peticiones a la API para guardar las citas.
+- **CSS**: darle estilo visual a todas las páginas (colores, tipografías, espaciados) y asegurarse de que se vean bien tanto en el sitio público como en las vistas internas.
+- **JavaScript**: hacer funcionar el menú hamburguesa en móvil, que el buscador de pacientes filtre la tabla en tiempo real, validar los formularios (citas, diagnósticos, nueva atención) antes de enviarlos, conectar el envío de datos a una base de datos o API, y generar los reportes de la recepcionista según las fechas que se elijan.
 
 ## Cómo está pensado para trabajar en equipo
 
-El HTML usa nombres de clases claros y consistentes (por ejemplo `header__logo`, `btn--primary`, `service-table`, `nav__list`) para que sea fácil saber qué estilos aplicar sin tener que adivinar. Y los elementos importantes para JavaScript ya tienen su `id` (como `navToggle`, `appointmentForm` o `map`), así que no hay que modificar la estructura del HTML para empezar a programar sobre ella.
+Todo el HTML usa nombres de clases claros y consistentes (por ejemplo `header__logo`, `btn--primary`, `data-table`, `nav__list`) para que sea fácil saber qué estilos aplicar sin tener que adivinar. Los elementos importantes para JavaScript ya tienen su `id` (como `navToggle`, `patientSearch`, `clinicalForm` o `reportForm`), así que no hay que modificar la estructura del HTML para empezar a programar sobre ella.
+
+Las tablas de pacientes también tienen atributos `data-pet` y `data-owner` en cada fila, pensados para que el buscador del veterinario pueda filtrar sin necesidad de tocar el HTML.
 
 ## Estructura de carpetas sugerida
 
 ```
 proyecto/
-├── index.html
+├── html.veterinaria-san-marcos.html
+├── html.portal.html
+├── html.cliente-dashboard.html
+├── html.veterinario-dashboard.html
+├── html.ficha-paciente.html
+├── html.recepcionista-dashboard.html
+├── logo.png
 ├── css/
 │   └── styles.css
 ├── js/
 │   └── main.js
-└── assets/
-    └── img/
-        ├── logo.png
-        ├── hero-mascota.jpg
-        └── ...
+└── img/
+    └── ... (fotos del equipo, hero, iconos, etc.)
 ```
 
-Cualquier duda sobre la estructura del HTML, revisen los comentarios que dejé dentro del archivo, ahí indico dónde va cada cosa.
+Cualquier duda sobre la estructura de algún archivo, revisen los comentarios que dejé dentro del HTML, ahí indico dónde va cada cosa y qué parte le corresponde a CSS o a JS.
