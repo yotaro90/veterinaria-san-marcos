@@ -248,9 +248,18 @@ main {
     margin-bottom: 1.75rem;
 }
 
+.hero__figure {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .hero__figure img {
-    border-radius: var(--radius);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.527);
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /*seccion nosotros*/
@@ -512,10 +521,10 @@ textarea :focus {
     align-items: center;
 }
 
-.team-card__img{
+.team-card__img {
     width: 100%;
-    max-height: 220px;
-    height: 180px;
+    max-width: 100%;
+    height: 200px;
     object-fit: cover;
     border-radius: var(--radius);
     margin-bottom: 1rem;
@@ -654,7 +663,7 @@ footer__bottom p {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .header__toggle {
         display: flex;
     }
@@ -686,17 +695,61 @@ footer__bottom p {
     .hero {
         grid-template-columns: 1fr;
         text-align: center;
+        padding: 1.5rem 1rem;
     }
 
     .hero__figure img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
         margin: 0 auto;
+        border-radius: 12px;
+    }
+
+    .about {
+        text-align: center;
+        padding: 0 1rem;
+    }
+
+    .about__content {
+        text-align: left;
+    }
+
+    .about__stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+
+    .about__stats article:last-child {
+        grid-column: 1 / -1;
+        max-width: 280px;
+        justify-self: center;
+        width: 100%;
+    }
+
+    .team {
+        padding: 0 1rem;
+    }
+
+    .team__photo img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+    }
+
+    .team-card__img {
+        width: 100%;
+        max-width: 100%;
+        height: 200px;
+        object-fit: cover;
     }
 
     .data-table thead,
     .service-table thead {
         display: none;
     }
-
 
     .data-table tr,
     .service-table tr {
@@ -706,7 +759,6 @@ footer__bottom p {
         border-radius: var(--radius);
         background: #ffffff;
     }
-
 
     .data-table td,
     .service-table td {
