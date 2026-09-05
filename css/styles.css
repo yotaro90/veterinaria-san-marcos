@@ -606,3 +606,96 @@ textarea :focus {
     color: #fff;
     width: 100%;
 }
+
+/*ajustar la pagina a distintos tamaños*/
+
+.header__toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.header__toggle-bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary);
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+
+@media (max-width: 768px) {
+    .header__toggle {
+        display: flex;
+    }
+    
+    .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        flex-direction: column;
+        padding: 1.5rem;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        z-index: 99;
+    }
+
+    .nav.activo {
+        display: flex;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero__figure img {
+        margin: 0 auto;
+    }
+
+    .data-table thead,
+    .service-table thead {
+        display: none;
+    }
+
+
+    .data-table tr,
+    .service-table tr {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius);
+        background: #ffffff;
+    }
+
+
+    .data-table td,
+    .service-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .data-table td::before,
+    .service-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--text-muted);
+    }
+}
