@@ -28,8 +28,6 @@ if (contenedorMapa) {
   marcador.bindPopup('<b>Veterinaria San Marcos</b><br>Rancagua, Chile').openPopup();
 }
 
-
-
 // Funciones para mostrar y limpiar mensajes de error
 function mostrarError(campo, mensaje) {
   campo.classList.add('campo-error');
@@ -127,8 +125,10 @@ const patronCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // Formato celular chileno: +56 9 1234 5678 o 912345678
 const patronTelefono = /^(\+?56)?9\d{8}$/;
 
-// Validación del formulario de agendamiento de citas (Recepcionista)
-const formulario = document.querySelector('#appointmentForm') || document.querySelector('#newAppointmentForm');
+// Validación del formulario de agendamiento de citas (Cliente / Recepcionista)
+const formulario = document.querySelector('#appointmentForm') || 
+                   document.querySelector('#newAppointmentForm') || 
+                   document.querySelector('#newClientAppointmentForm');
 
 if (formulario) {
   formulario.addEventListener('submit', function(e) {
@@ -137,16 +137,16 @@ if (formulario) {
     const nombreDuenio = document.querySelector('#ownerName') || document.querySelector('#ownerNameR');
     const correoDuenio = document.querySelector('#ownerEmail');
     const telefonoDuenio = document.querySelector('#ownerPhone') || document.querySelector('#ownerPhoneR');
-    const nombreMascota = document.querySelector('#petName') || document.querySelector('#petNameR');
-    const especieMascota = document.querySelector('#petSpecies') || document.querySelector('#petSpeciesR');
-    const tipoServicio = document.querySelector('#serviceType') || document.querySelector('#serviceTypeR');
+    const nombreMascota = document.querySelector('#petName') || document.querySelector('#petNameR') || document.querySelector('#petNameC');
+    const especieMascota = document.querySelector('#petSpecies') || document.querySelector('#petSpeciesR') || document.querySelector('#petSpeciesC');
+    const tipoServicio = document.querySelector('#serviceType') || document.querySelector('#serviceTypeR') || document.querySelector('#serviceTypeC');
     const vetAsignado = document.querySelector('#vetAssigned');
-    const fechaCita = document.querySelector('#appointmentDate') || document.querySelector('#appointmentDateR');
-    const horaCita = document.querySelector('#appointmentTime') || document.querySelector('#appointmentTimeR');
+    const fechaCita = document.querySelector('#appointmentDate') || document.querySelector('#appointmentDateR') || document.querySelector('#appointmentDateC');
+    const horaCita = document.querySelector('#appointmentTime') || document.querySelector('#appointmentTimeR') || document.querySelector('#appointmentTimeC');
 
     let esValido = true;
 
-    // Validación nombre del dueño
+    // Validación nombre del dueño (si existe en la vista)
     if (nombreDuenio) {
       if (nombreDuenio.value.trim() === '') {
         mostrarError(nombreDuenio, 'El nombre del dueño es obligatorio.');
@@ -156,7 +156,7 @@ if (formulario) {
       }
     }
 
-    // Validación correo electrónico
+    // Validación correo electrónico (si existe)
     if (correoDuenio) {
       if (correoDuenio.value.trim() === '') {
         mostrarError(correoDuenio, 'El correo electrónico es obligatorio.');
@@ -169,7 +169,7 @@ if (formulario) {
       }
     }
 
-    // Validación teléfono
+    // Validación teléfono (si existe)
     if (telefonoDuenio) {
       const telefonoLimpio = telefonoDuenio.value.replace(/[\s-]/g, '');
 
@@ -214,7 +214,7 @@ if (formulario) {
       }
     }
 
-    // Validación veterinario asignado
+    // Validación veterinario asignado (si existe)
     if (vetAsignado) {
       if (vetAsignado.value === '') {
         mostrarError(vetAsignado, 'Debe seleccionar un veterinario.');
@@ -224,14 +224,14 @@ if (formulario) {
       }
     }
 
-    // Validación fecha y hora
+    // Validación fecha y hora (reutilizando la función)
     if (fechaCita && horaCita) {
       if (!validarFechaYHora(fechaCita, horaCita)) {
         esValido = false;
       }
     }
 
-    // Mensaje de confirmación
+    // Mensaje de confirmación e inserción en tabla si es válido
     let mensajeConfirmacion = formulario.querySelector('.mensaje-confirmacion');
 
     if (esValido) {
@@ -241,6 +241,30 @@ if (formulario) {
         formulario.after(mensajeConfirmacion);
       }
       mensajeConfirmacion.textContent = 'Solicitud enviada con éxito. Nos comunicaremos a la brevedad para confirmar.';
+
+      // Agregar dinámicamente a la tabla "Mis próximas citas" si existe la tabla #upcomingTable
+      const tablaProximas = document.querySelector('#upcomingTable tbody');
+      if (tablaProximas) {
+        const partesF = fechaCita.value.split('-');
+        const fechaFormateada = `${partesF[2]}-${partesF[1]}-${partesF[0]}`;
+        const textoServicio = tipoServicio.options[tipoServicio.selectedIndex].text;
+
+        const nuevaFila = document.createElement('tr');
+        nuevaFila.innerHTML = `
+          <td data-label="Fecha">${fechaFormateada}</td>
+          <td data-label="Hora">${horaCita.value}</td>
+          <td data-label="Mascota">${nombreMascota.value}</td>
+          <td data-label="Servicio">${textoServicio}</td>
+          <td data-label="Veterinario">Por asignar</td>
+          <td data-label="Estado"><span class="badge badge--pending">Por confirmar</span></td>
+          <td data-label="Acciones">
+            <button type="button" class="btn btn--small btn--outline">Reagendar</button>
+            <button type="button" class="btn btn--small btn--danger">Cancelar</button>
+          </td>
+        `;
+        tablaProximas.appendChild(nuevaFila);
+      }
+
       formulario.reset();
     } else {
       if (mensajeConfirmacion) {
@@ -251,7 +275,6 @@ if (formulario) {
 }
 
 // Validación nueva de atención (Veterinario)
-
 const formClinico = document.querySelector('#clinicalForm');
 
 if (formClinico) {
@@ -286,7 +309,7 @@ if (formClinico) {
       }
     }
 
-    // Validación datos de control de seguimiento si casilla
+    // Validación datos de control de seguimiento
     if (agendarControl && agendarControl.checked) {
       if (fechaControl && horaControl) {
         if (!validarFechaYHora(fechaControl, horaControl)) {
@@ -318,7 +341,6 @@ if (formClinico) {
 }
 
 // Validación del formulario de reportes (Recepcionista)
-
 const formReporte = document.querySelector('#reportForm');
 
 if (formReporte) {
@@ -383,7 +405,6 @@ if (formReporte) {
 }
 
 // Búsqueda de pacientes (Veterinario)
-
 const buscadorPacientes = document.querySelector('#patientSearch');
 const tablaPacientes = document.querySelector('#patientsTable');
 
