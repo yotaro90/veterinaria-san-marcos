@@ -4,34 +4,23 @@ Este es el proyecto web que estamos armando para la Veterinaria San Marcos, una 
 
 ## ¿Qué hay en este proyecto?
 
-Por ahora está listo el **HTML** de todas las pantallas principales. Están armadas con etiquetas semánticas de HTML5 (`header`, `nav`, `main`, `section`, `article`, `footer`) para que sea fácil de leer y de conectar con estilos y funcionalidad.
+El sitio ya tiene HTML, CSS y JavaScript funcionando en conjunto. El HTML está armado con etiquetas semánticas de HTML5 (`header`, `nav`, `main`, `section`, `article`, `footer`).
 
-- **`html.veterinaria-san-marcos.html`**: la página principal y pública del sitio. Acá cualquier visitante puede conocer la clínica, ver el catálogo de servicios con precios, revisar quiénes forman el equipo (con foto real del equipo) y llegar a la ubicación de la clínica. El botón "Agenda tu cita" (en el hero, el menú y el footer) lleva directo al panel del cliente, donde se gestionan las citas.
+- **`html.veterinaria-san-marcos.html`**: la página principal y pública del sitio. Acá cualquier visitante puede conocer la clínica, ver el catálogo de servicios con precios, revisar quiénes forman el equipo (con fotos reales), y ubicar la clínica en un mapa interactivo.
 
-- **`html.portal.html`**: la puerta de entrada al sistema interno. Muestra tres botones para elegir con qué rol vas a ingresar: Cliente (que lleva al sitio principal), Veterinario o Recepcionista.
+- **`html.portal.html`**: la puerta de entrada al sistema interno. Muestra tres botones para elegir con qué rol vas a ingresar: Cliente, Veterinario o Recepcionista.
 
-- **`html.cliente-dashboard.html`**: lo que ve un dueño de mascota una vez que entra al sistema. Puede revisar sus próximas citas, su historial de citas pasadas, y el estado de vacunación de su mascota (con aviso de cuáles vacunas están por vencer).
+- **`html.cliente-dashboard.html`**: lo que ve un dueño de mascota una vez que entra al sistema. Puede revisar sus próximas citas, solicitar una nueva cita con un formulario propio, ver su historial de citas pasadas, y el estado de vacunación de su mascota (con aviso de cuáles vacunas están por vencer).
 
 - **`html.veterinario-dashboard.html`**: la vista del veterinario. Tiene la agenda del día y una tabla de pacientes con un buscador para encontrar rápido a cualquier mascota o dueño.
 
-- **`html.ficha-paciente.html`**: la ficha clínica de un paciente en particular. Muestra sus datos, el historial de atenciones anteriores, y un formulario para que el veterinario registre el diagnóstico, los medicamentos recetados y agende un control de seguimiento si corresponde.
+- **`html.ficha-paciente.html`**: la ficha clínica de un paciente en particular. Muestra sus datos, el historial de atenciones anteriores, el historial de vacunación, y un formulario para que el veterinario registre el diagnóstico, los medicamentos recetados y agende un control de seguimiento si corresponde.
 
 - **`html.recepcionista-dashboard.html`**: la vista de la recepcionista. Tiene la agenda del día, un formulario para crear nuevas citas, y una sección para generar reportes de atenciones filtrando por fecha.
 
-- **`logo.png`**: el logo de la clínica, con fondo transparente para que se vea bien sobre cualquier color.
+- **`img/`**: todas las imágenes del sitio, incluyendo el logo, la foto del hero, la foto grupal del equipo y las fotos individuales de cada rol.
 
-- **`img/`**: carpeta con las imágenes del sitio, incluyendo la foto del hero (equipo examinando a un corgi) y la foto grupal del equipo.
-
-## ¿Qué falta por hacer?
-
-- **CSS**: darle estilo visual a todas las páginas (colores, tipografías, espaciados) y asegurarse de que se vean bien tanto en el sitio público como en las vistas internas.
-- **JavaScript**: hacer funcionar el menú hamburguesa en móvil, que el buscador de pacientes filtre la tabla en tiempo real, validar los formularios (nueva cita, diagnóstico, nueva atención) antes de enviarlos, conectar el envío de datos a una base de datos o API, y generar los reportes de la recepcionista según las fechas que se elijan.
-
-## Cómo está pensado para trabajar en equipo
-
-Todo el HTML usa nombres de clases claros y consistentes (por ejemplo `header__logo`, `btn--primary`, `data-table`, `nav__list`) para que sea fácil saber qué estilos aplicar sin tener que adivinar. Los elementos importantes para JavaScript ya tienen su `id` (como `navToggle`, `patientSearch`, `clinicalForm` o `reportForm`), así que no hay que modificar la estructura del HTML para empezar a programar sobre ella.
-
-Las tablas de pacientes también tienen atributos `data-pet` y `data-owner` en cada fila, pensados para que el buscador del veterinario pueda filtrar sin necesidad de tocar el HTML.
+- **`css/styles.css`** y **`js/funciones.js`**: los estilos y la lógica del sitio, ya implementados por el equipo. Incluye diseño responsive y el mapa interactivo de la ubicación.
 
 ## Flujo de navegación
 
@@ -39,30 +28,29 @@ Las tablas de pacientes también tienen atributos `data-pet` y `data-owner` en c
 html.portal.html
 ├── Cliente          → html.veterinaria-san-marcos.html
 │                        └── "Agenda tu cita" → html.cliente-dashboard.html
+│                                                  ├── Mis citas
+│                                                  ├── Nueva cita (formulario)
+│                                                  ├── Historial
+│                                                  └── Vacunas
 ├── Veterinario      → html.veterinario-dashboard.html
 │                        └── "Ver ficha" → html.ficha-paciente.html
+│                                             ├── Historial de atenciones
+│                                             ├── Historial de vacunación
+│                                             └── Registrar nueva atención
 └── Recepcionista    → html.recepcionista-dashboard.html
+                          ├── Agenda del día
+                          ├── Nueva cita
+                          └── Reportes
 ```
 
-## Estructura de carpetas sugerida
+## ¿Qué falta por hacer?
 
-```
-proyecto/
-├── html.veterinaria-san-marcos.html
-├── html.portal.html
-├── html.cliente-dashboard.html
-├── html.veterinario-dashboard.html
-├── html.ficha-paciente.html
-├── html.recepcionista-dashboard.html
-├── logo.png
-├── css/
-│   └── styles.css
-├── js/
-│   └── main.js
-└── img/
-    ├── hero-mascota.webp
-    ├── equipo-foto-grupal.jpg
-    └── ... (más fotos e iconos)
-```
+- Conectar los formularios (nueva cita, diagnóstico, reportes) a una base de datos o API real, ya que por ahora el envío es solo de ejemplo (`action="#"`).
+- Que el buscador de pacientes del veterinario filtre en vivo la tabla usando los atributos `data-pet` y `data-owner` que ya trae cada fila.
+- Revisar el responsive en dispositivos más pequeños a medida que se agreguen más secciones.
 
-Cualquier duda sobre la estructura de algún archivo, revisen los comentarios que dejé dentro del HTML, ahí indico dónde va cada cosa y qué parte le corresponde a CSS o a JS.
+## Cómo está pensado para trabajar en equipo
+
+Todo el HTML usa nombres de clases claros y consistentes (por ejemplo `header__logo`, `btn--primary`, `data-table`, `nav__list`) para que el CSS y el JS se conecten sin adivinar selectores. Los elementos importantes para JavaScript tienen su propio `id` (como `navToggle`, `patientSearch`, `clinicalForm`, `newClientAppointmentForm` o `reportForm`).
+
+Cualquier duda sobre la estructura de algún archivo, revisen los comentarios que quedan dentro del HTML, ahí se indica dónde va cada cosa.
