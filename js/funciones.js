@@ -8,8 +8,29 @@ if (botonMenu && menuNavegacion) {
   });
 }
 
-// Funciones para mostrar y limpiar mensajes de error
+// Mapa Interactivo
+const contenedorMapa = document.querySelector('#map');
 
+if (contenedorMapa) {
+  const latRancagua = -34.1701;
+  const lngRancagua = -70.7444;
+
+  // Iniciar mapa
+  const mapa = L.map('map').setView([latRancagua, lngRancagua], 15);
+
+  // Cargar mapa de OpenStreetMap
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(mapa);
+
+  // Agregar marcador de la clínica
+  const marcador = L.marker([latRancagua, lngRancagua]).addTo(mapa);
+  marcador.bindPopup('<b>Veterinaria San Marcos</b><br>Rancagua, Chile').openPopup();
+}
+
+
+
+// Funciones para mostrar y limpiar mensajes de error
 function mostrarError(campo, mensaje) {
   campo.classList.add('campo-error');
   let textoError = campo.parentElement.querySelector('.mensaje-error');

@@ -6,7 +6,10 @@
   <title>Veterinaria San Marcos | Rancagua</title>
   <meta name="description" content="Veterinaria San Marcos: consultas, vacunación, cirugía, exámenes y agendamiento de citas en línea para tu mascota en Rancagua.">
 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="css/styles.css">
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
   <script src="js/funciones.js" defer></script>
 </head>
 <body>
@@ -16,7 +19,7 @@
     <div class="header__container">
 
       <a href="html.veterinaria-san-marcos.html"" class="header__logo">
-        <img src="/img/logo.png" alt="Logo Veterinaria San Marcos" class="header__logo-img">
+        <img src="img/logo.png" alt="Logo Veterinaria San Marcos" class="header__logo-img">
         <span class="header__logo-text">Veterinaria San Marcos</span>
       </a>
 
@@ -460,8 +463,16 @@
           </tbody>
         </table>
       </article>
-
+    <!-- ============ UBICACIÓN ============ -->
     </section>
+    <section id="ubicacion" class="location">
+      <h2 class="section-title">Nuestra Ubicación</h2>
+      <p class="section-subtitle">Nos encontramos en Rancagua. ¡Ven a visitarnos con tu mascota!</p>
+      
+      <!-- Contenedor donde Leaflet renderiza el mapa -->
+      <div id="map" class="map-container"></div>
+    </section>
+
     </main>
   <!-- ============ PIE DE PAGINA ============ -->
   <footer class="footer" id="contacto">
@@ -506,9 +517,5 @@
       <p>&copy; 2026 Veterinaria San Marcos. Todos los derechos reservados.</p>
     </div>
   </footer>
-
-  <!-- aqui enlazar los archivo(s) JS -->
-  <script src="js/main.js" defer></script>
-
 </body>
 </html>
