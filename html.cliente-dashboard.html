@@ -29,6 +29,7 @@
       <nav class="nav" id="navMenu">
         <ul class="nav__list">
           <li class="nav__item"><a href="#proximas" class="nav__link">Mis citas</a></li>
+          <li class="nav__item"><a href="#nueva-cita" class="nav__link">Nueva cita</a></li>
           <li class="nav__item"><a href="#historial" class="nav__link">Historial</a></li>
           <li class="nav__item"><a href="#vacunas" class="nav__link">Vacunas</a></li>
         </ul>
@@ -45,10 +46,7 @@
 
     <!-- ---------- PRÓXIMAS CITAS ---------- -->
     <section id="proximas" class="dashboard-section">
-      <div class="dashboard-section__head">
-        <h1 class="section-title">Mis próximas citas</h1>
-        <a href="index.html#citas" class="btn btn--primary">Agendar nueva cita</a>
-      </div>
+      <h1 class="section-title">Mis próximas citas</h1>
 
       <table class="data-table" id="upcomingTable">
         <caption class="sr-only">Citas próximas</caption>
@@ -90,6 +88,66 @@
           </tr>
         </tbody>
       </table>
+    </section>
+
+    <!-- ---------- SOLICITAR NUEVA CITA ---------- -->
+    <section id="nueva-cita" class="dashboard-section">
+      <h2 class="section-title">Solicitar una nueva cita</h2>
+      <p class="section-subtitle">Completa el formulario y nuestra recepcionista confirmará tu hora a la brevedad.</p>
+
+      <!-- El envío del formulario (fetch/AJAX hacia la API REST) lo implementa el equipo de JS -->
+      <form class="appointment-form" id="newClientAppointmentForm" action="#" method="post" novalidate>
+
+        <div class="form-group">
+          <label for="petNameC">Nombre de la mascota</label>
+          <input type="text" id="petNameC" name="petNameC" placeholder="Ej: Rocky" required>
+        </div>
+
+        <div class="form-group">
+          <label for="petSpeciesC">Especie</label>
+          <select id="petSpeciesC" name="petSpeciesC" required>
+            <option value="">Selecciona una opción</option>
+            <option value="perro">Perro</option>
+            <option value="gato">Gato</option>
+            <option value="conejo">Conejo</option>
+            <option value="ave">Ave</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="serviceTypeC">Tipo de servicio</label>
+          <select id="serviceTypeC" name="serviceTypeC" required>
+            <option value="">Selecciona una opción</option>
+            <option value="consulta">Consulta general</option>
+            <option value="urgencia">Consulta de urgencia</option>
+            <option value="vacunacion">Vacunación</option>
+            <option value="cirugia">Cirugía</option>
+            <option value="desparasitacion">Desparasitación</option>
+            <option value="examen">Exámenes</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="appointmentDateC">Fecha preferida</label>
+          <input type="date" id="appointmentDateC" name="appointmentDateC" required>
+        </div>
+
+        <div class="form-group">
+          <label for="appointmentTimeC">Hora preferida</label>
+          <input type="time" id="appointmentTimeC" name="appointmentTimeC" required>
+        </div>
+
+        <div class="form-group form-group--full">
+          <label for="appointmentMessageC">Motivo de la consulta</label>
+          <textarea id="appointmentMessageC" name="appointmentMessageC" rows="4" placeholder="Cuéntanos brevemente qué le sucede a tu mascota"></textarea>
+        </div>
+
+        <div class="form-group form-group--full">
+          <button type="submit" class="btn btn--primary btn--large">Solicitar cita</button>
+        </div>
+
+      </form>
     </section>
 
     <!-- ---------- HISTORIAL DE CITAS PASADAS ---------- -->
