@@ -428,3 +428,51 @@ textarea :focus {
 .form-group--align-end {
     justify-content: flex-end;
 }
+
+/*buscar los pacientes*/
+.search-bar {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Pagina del  portal*/
+.portal {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.portal__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.portal-card {
+    background: var(--bg-card);
+    padding: 2.5rem 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.portal-card:hover {
+    transform: translateY(-5px);
+}
+
+.portal-card__title {
+    margin-bottom: 1.5rem;
+}
+
+.portal-card__desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
